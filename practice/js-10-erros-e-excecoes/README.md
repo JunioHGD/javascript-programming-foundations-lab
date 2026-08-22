@@ -7,7 +7,7 @@ Mostrar como tratar erros em JavaScript como parte do fluxo normal de execução
 | ID | Unidade |
 |:---:|---|
 | `JS-10.01` | [`throw` e Objeto `Error`](./js-10.01-throw-e-objeto-error/) |
-| `JS-10.02` | [`try...catch...finally`](./js-10.02-try...catch...finally/) |
+| `JS-10.02` | [`try...catch...finally`](./js-10.02-try-catch-finally/) |
 
 ## Validação do bloco
 
