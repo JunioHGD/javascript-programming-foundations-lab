@@ -1,48 +1,57 @@
-# JavaScript & Programming Foundations Lab
+# JavaScript Foundations Lab
 
-![JavaScript](https://img.shields.io/badge/JavaScript-ECMAScript-F7DF1E?style=flat-square&logo=javascript&logoColor=000000)
-![Programming Foundations](https://img.shields.io/badge/Programming_Foundations-Core_Concepts-4B5563?style=flat-square)
-![Learning Lab](https://img.shields.io/badge/Learning_Lab-Curated_Evidence-2563EB?style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-Foundations-F7DF1E?logo=javascript&logoColor=000)
+![Status](https://img.shields.io/badge/status-em%20andamento-yellow)
+![Focus](https://img.shields.io/badge/foco-fundamentos%20%2B%20prática-blue)
 
-Este repositório documenta uma trilha fundamental que integra **lógica de programação, raciocínio algorítmico e JavaScript**. O objetivo é construir modelos mentais que permitam analisar problemas, formular algoritmos, prever a execução de programas e expressar soluções corretamente sem depender de memorização isolada de sintaxe.
+Laboratório dedicado ao estudo e à prática dos **fundamentos essenciais de JavaScript** para desenvolvimento Web full stack.
 
-## Sobre o Lab
+O foco é compreender como a linguagem representa valores, resolve escopos, executa funções, manipula objetos e coordena erros e assincronismo, aplicando esses mecanismos em código real.
 
-A progressão parte de problemas, valores, estado e execução; avança por controle de fluxo, funções, modelagem e processamento de dados; e consolida objetos, módulos, erros e assincronismo. O escopo permanece centrado nos fundamentos de programação e ECMAScript, mantendo APIs do navegador, DOM, Node.js, frameworks e aprofundamentos especializados fora do caminho principal.
+> **Fundamentos → prática → execução → debugging**
 
-## Trilha curricular
+## Competências
 
-- [LJS-01 — Problemas, valores, estado e execução](./practice/ljs-01-problemas-valores-estado-e-execucao/)
-- [LJS-02 — Decisão, repetição e fluxo de execução](./practice/ljs-02-decisao-repeticao-e-fluxo-de-execucao/)
-- [LJS-03 — Funções, escopo e abstração](./practice/ljs-03-funcoes-escopo-e-abstracao/)
-- [LJS-04 — Modelagem de dados, identidade e mutabilidade](./practice/ljs-04-modelagem-de-dados-identidade-e-mutabilidade/)
-- [LJS-05 — Processamento de coleções e raciocínio algorítmico](./practice/ljs-05-processamento-de-colecoes-e-raciocinio-algoritmico/)
-- [LJS-06 — Objetos, protótipos e classes](./practice/ljs-06-objetos-prototipos-e-classes/)
-- [LJS-07 — Módulos e falhas](./practice/ljs-07-modulos-e-falhas/)
-- [LJS-08 — Execução assíncrona e ambientes JavaScript](./practice/ljs-08-execucao-assincrona-e-ambientes-javascript/)
+- **prever e diagnosticar o comportamento do JavaScript**, raciocinando sobre tipos, coerção, escopo, closures, referências e execução assíncrona;
+- **implementar e organizar soluções** com funções, objetos, coleções, módulos e tratamento de erros;
+- **construir e depurar fluxos síncronos e assíncronos**, distinguindo corretamente linguagem, runtime e APIs do ambiente.
 
+## Percurso
+
+| ID | Bloco |
+|:---:|---|
+| `JS-01` | [Valores, Tipos e Avaliação de Expressões](./practice/js-01-valores-tipos-e-avaliacao-de-expressoes/) |
+| `JS-02` | [Bindings, Declarações e Escopo Léxico](./practice/js-02-bindings-declaracoes-e-escopo-lexico/) |
+| `JS-03` | [Funções e Closures](./practice/js-03-funcoes-e-closures/) |
+| `JS-04` | [Objetos: Propriedades, Referências e Mutabilidade](./practice/js-04-objetos-propriedades-referencias-e-mutabilidade/) |
+| `JS-05` | [Protótipos, Herança e Classes](./practice/js-05-prototipos-heranca-e-classes/) |
+| `JS-06` | [Métodos e `this`](./practice/js-06-metodos-e-this/) |
+| `JS-07` | [Coleções e Iteração (Arrays e Iteráveis)](./practice/js-07-colecoes-e-iteracao-arrays-e-iteraveis/) |
+| `JS-08` | [Recursos Modernos da Linguagem](./practice/js-08-recursos-modernos-da-linguagem/) |
+| `JS-09` | [Módulos ECMAScript](./practice/js-09-modulos-ecmascript/) |
+| `JS-10` | [Erros e Exceções](./practice/js-10-erros-e-excecoes/) |
+| `JS-11` | [Assíncronismo e Promises](./practice/js-11-assincronismo-e-promises/) |
+| `JS-12` | [Async/Await e Event Loop](./practice/js-12-async-await-e-event-loop/) |
+
+> Consulte o [currículo completo](./curriculum/curriculum.md).
 
 ## Estrutura do repositório
 
-| Diretório | Finalidade |
-|---|---|
-| [`curriculum/`](./curriculum/) | Currículo que define escopo, sequência, objetivos e conceitos do Lab. |
-| [`practice/`](./practice/) | Documentação e evidências organizadas por blocos e unidades curriculares. |
-| [`projects/`](./projects/) | Projetos de integração ampla que podem combinar conhecimentos de múltiplos blocos do Lab. |
+```text
+javascript-programming-foundations-lab/
+├── curriculum/
+├── practice/
+├── web-integration/
+└── projects/
+```
 
-## Documentos
+- [`curriculum/`](./curriculum/) — mapa e currículo canônico do Lab.
+- [`practice/`](./practice/) — blocos, unidades, exercícios e checkpoints.
+- [`web-integration/`](./web-integration/) — aplicação dos fundamentos em contextos Web funcionais.
+- [`projects/`](./projects/) — projetos de integração de maior escopo.
 
-| Documento | Função |
-|---|---|
-| `README.md` | Apresenta o escopo atual e orienta a navegação pelo repositório. |
-| `knowledge-check.md` | Reúne perguntas e respostas selecionadas para documentar compreensão e comunicação técnica em uma unidade. |
-| `technical-interview.md` | Reúne perguntas e respostas selecionadas durante a validação cumulativa de um bloco. |
-| `curriculum.md` | Registra a estrutura curricular canônica que orienta o Lab. |
+---
 
-## Projetos
+### Navegação
 
-Os projetos de integração ampla ficam em [`projects/`](./projects/). Eles serão adicionados conforme houver base suficiente para combinar, de forma significativa, conhecimentos desenvolvidos em diferentes blocos.
-
-## Começar
-
-[Explorar o primeiro bloco →](./practice/ljs-01-problemas-valores-estado-e-execucao/)
+[JS-01 — Valores, Tipos e Avaliação de Expressões →](./practice/js-01-valores-tipos-e-avaliacao-de-expressoes/)

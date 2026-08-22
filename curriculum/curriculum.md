@@ -1,788 +1,932 @@
-# JavaScript & Programming Foundations Lab
+# JavaScript Foundations Lab — Currículo Canônico
 
-## Identificação
+## Escopo
 
-**Lab:** JavaScript & Programming Foundations Lab
+O **JavaScript Foundations Lab** desenvolve domínio do núcleo da linguagem JavaScript/ECMAScript: valores e tipos, bindings e escopo, funções e closures, objetos e referências, protótipos, `this`, coleções, recursos modernos, módulos, erros e assincronismo. O Lab não repete lógica de programação genérica e utiliza APIs de ambiente apenas quando necessárias à Web Integration.
 
-**Sigla:** LJS
+## Mapa curricular
 
-**Finalidade:** Construir uma base que permita **analisar problemas, formular algoritmos, prever a execução de programas e expressar soluções corretamente em JavaScript**, compreendendo os mecanismos da linguagem em vez de apenas memorizar sintaxe.
-
-**Visão geral:** O **JavaScript & Programming Foundations Lab** integra raciocínio algorítmico aos mecanismos fundamentais do JavaScript: parte da representação de problemas, valores, estado e execução; evolui para controle de fluxo, funções, modelagem e processamento de dados; depois consolida o modelo de objetos, modularização, erros e assincronismo. A organização não replica a estrutura da especificação, do MDN ou da CS2023: ela resulta da combinação entre fundamentos introdutórios de programação e dependências reais dos mecanismos da linguagem.
-
-**Escopo:** O Lab cobre o núcleo de lógica de programação e ECMAScript necessário para formação inicial profissional, incluindo um modelo mínimo de assincronismo. APIs do navegador, DOM, Node.js, frameworks, estruturas de dados especializadas e análise algorítmica formal ficam fora do núcleo; ECMAScript é tratado como linguagem executada dentro de um host, e não confundido com as APIs desse ambiente.
-
----
-
-# Estrutura curricular
-
-## LJS-01 — Problemas, valores, estado e execução
-
-### Objetivo
-
-Construir o primeiro modelo mental de programa: representar um problema como dados e operações cuja execução transforma estado de maneira previsível.
-
-### Unidades
-
-#### LJS-01.01 — Problemas e algoritmos
-
-**Objetivo:** transformar problemas simples em processos computacionais explícitos antes de se concentrar na sintaxe.
-
-**Conceitos fundamentais:**
-
-1. problema computacional, objetivo e resultado esperado;
-2. entradas, saídas, regras e restrições;
-3. decomposição de problemas;
-4. abstração e identificação das informações relevantes;
-5. algoritmo como sequência finita de operações;
-6. estado inicial, transformações e estado resultante;
-7. rastreamento passo a passo e casos-limite.
-
-**Chats derivados:**
-
-- `LJS-01.01 — Estudo — Problemas e algoritmos`
-- `LJS-01.01 — Prática — Problemas e algoritmos`
-
-#### LJS-01.02 — Valores, tipos e bindings
-
-**Objetivo:** compreender como JavaScript representa valores e associa nomes a eles.
-
-**Conceitos fundamentais:**
-
-1. valor, tipo e tipagem dinâmica;
-2. valores primitivos e objetos;
-3. `undefined`, `null`, booleanos, strings e números;
-4. particularidades fundamentais de `Number`: `NaN` e infinitos;
-5. identificadores e bindings;
-6. declaração e inicialização;
-7. `let` e `const`;
-8. reatribuição versus mutação.
-
-**Chats derivados:**
-
-- `LJS-01.02 — Estudo — Valores, tipos e bindings`
-- `LJS-01.02 — Prática — Valores, tipos e bindings`
-
-#### LJS-01.03 — Expressões e transformação de valores
-
-**Objetivo:** raciocinar sobre como expressões produzem resultados e transformam dados.
-
-**Conceitos fundamentais:**
-
-1. expressões, operandos e resultados;
-2. avaliação, precedência e associatividade;
-3. operações aritméticas, relacionais e lógicas no contexto de problemas;
-4. conversão explícita e coerção implícita;
-5. igualdade estrita e igualdade abstrata;
-6. truthy e falsy;
-7. curto-circuito com `&&` e `||`;
-8. ausência de valor e `??`;
-9. expressão condicional.
-
-**Chats derivados:**
-
-- `LJS-01.03 — Estudo — Expressões e transformação de valores`
-- `LJS-01.03 — Prática — Expressões e transformação de valores`
-
-### Resultado esperado
-
-Conseguir decompor problemas simples, representar seus dados como valores e bindings e prever como expressões e atribuições alteram o estado de um programa.
-
-### Checkpoint derivado
-
-`LJS-01 — Checkpoint — Problemas, valores, estado e execução`
+| ID | Bloco |
+|:---:|---|
+| `JS-01` | [Valores, Tipos e Avaliação de Expressões](../practice/js-01-valores-tipos-e-avaliacao-de-expressoes/) |
+| `JS-02` | [Bindings, Declarações e Escopo Léxico](../practice/js-02-bindings-declaracoes-e-escopo-lexico/) |
+| `JS-03` | [Funções e Closures](../practice/js-03-funcoes-e-closures/) |
+| `JS-04` | [Objetos: Propriedades, Referências e Mutabilidade](../practice/js-04-objetos-propriedades-referencias-e-mutabilidade/) |
+| `JS-05` | [Protótipos, Herança e Classes](../practice/js-05-prototipos-heranca-e-classes/) |
+| `JS-06` | [Métodos e `this`](../practice/js-06-metodos-e-this/) |
+| `JS-07` | [Coleções e Iteração (Arrays e Iteráveis)](../practice/js-07-colecoes-e-iteracao-arrays-e-iteraveis/) |
+| `JS-08` | [Recursos Modernos da Linguagem](../practice/js-08-recursos-modernos-da-linguagem/) |
+| `JS-09` | [Módulos ECMAScript](../practice/js-09-modulos-ecmascript/) |
+| `JS-10` | [Erros e Exceções](../practice/js-10-erros-e-excecoes/) |
+| `JS-11` | [Assíncronismo e Promises](../practice/js-11-assincronismo-e-promises/) |
+| `JS-12` | [Async/Await e Event Loop](../practice/js-12-async-await-e-event-loop/) |
 
 ---
 
-## LJS-02 — Decisão, repetição e fluxo de execução
+# JS-01 — Valores, Tipos e Avaliação de Expressões
 
-### Objetivo
+## Objetivo
 
-Transformar algoritmos lineares em algoritmos capazes de selecionar caminhos e repetir processamento, mantendo explícito o raciocínio sobre estado, progresso e término.
 
-### Unidades
 
-#### LJS-02.01 — Decisão e caminhos de execução
+## Unidades
 
-**Objetivo:** modelar alternativas de execução a partir de condições.
+### JS-01.01 — Tipos Primitivos e Objetos
 
-**Conceitos fundamentais:**
+**Objetivo**
 
-1. condição e predicado;
-2. estado antes e depois de uma decisão;
-3. caminhos mutuamente exclusivos e caminhos opcionais;
-4. `if`, `else if` e `else`;
-5. seleção por casos com `switch`;
-6. condições compostas;
-7. decisões aninhadas;
-8. cobertura de casos e casos-limite.
+Distinguir os diferentes tipos primitivos (undefined, null, boolean, number, BigInt, string, Symbol) e valores de referência (objetos, arrays, funções) em JavaScript.
 
-**Chats derivados:**
+**Fundamentos**
 
-- `LJS-02.01 — Estudo — Decisão e caminhos de execução`
-- `LJS-02.01 — Prática — Decisão e caminhos de execução`
+- **Tipos primitivos:** características de `undefined`, `null`, Booleanos, números (e `NaN`, `Infinity`), BigInt, strings, Symbol.
+- **Objetos como valores de referência:** criação de objetos literais, valores de referência, identidade dos objetos.
+- **Operador `typeof`:** identifica tipos primitivos (atenção: `typeof null` é "object").
 
-#### LJS-02.02 — Repetição e progresso
+**Competências**
 
-**Objetivo:** representar processos repetitivos garantindo que cada iteração contribua para o objetivo.
+- Identificar o tipo de qualquer valor (`typeof`).
+- Distinguir primitives de objetos/arrays/funções.
+- Prever como valores especiais (`null`, `undefined`, `NaN`) se comportam em expressões.
 
-**Conceitos fundamentais:**
+**Dependências**
 
-1. repetição baseada em condição;
-2. repetição baseada em contagem;
-3. `while`;
-4. `for`;
-5. iteração sobre sequências com `for...of`;
-6. estado de iteração;
-7. inicialização, progresso e condição de término;
-8. `break` e `continue`;
-9. loops infinitos e condições de parada.
+- Nenhuma (conteúdo básico).
 
-**Chats derivados:**
+**Web Integration**
 
-- `LJS-02.02 — Estudo — Repetição e progresso`
-- `LJS-02.02 — Prática — Repetição e progresso`
+Exibir o tipo ou valor recebido de um campo de formulário no console usando `typeof`, mostrando ao usuário se o valor inserido é número, texto, etc.
 
-#### LJS-02.03 — Rastreamento e correção intuitiva
+### JS-01.02 — Conversão de Tipos e Coerção
 
-**Objetivo:** desenvolver capacidade de explicar por que um algoritmo termina e produz determinado resultado.
+**Objetivo**
 
-**Conceitos fundamentais:**
+Entender como JS converte valores entre tipos em expressões e condições.
 
-1. rastreamento de variáveis e caminhos;
-2. invariantes intuitivos;
-3. pré-condições e resultados esperados;
-4. casos normais, vazios e extremos;
-5. término;
-6. erros lógicos;
-7. validação manual de pequenas soluções.
+**Fundamentos**
 
-**Chats derivados:**
+- **Coerção implícita:** concatenação string + número, comparação `==`.
+- **Truthy/Falsy:** valores que avaliam como false em condicionais (false, `undefined`, `null`, `0`, `NaN`, `""`); todos os demais (incluindo objetos) são truthy.
+- **Conversão explícita:** `Boolean()`, `String()`, `Number()`.
+- **Igualdade:** diferenças entre `==` (com coerção) e `===` (sem coerção).
+- **Comparações numéricas e de string:** comportamento de `<`, `>` com diferentes tipos.
 
-- `LJS-02.03 — Estudo — Rastreamento e correção intuitiva`
-- `LJS-02.03 — Prática — Rastreamento e correção intuitiva`
+**Competências**
 
-### Resultado esperado
+- Avaliar expressões que envolvem conversão de tipo (por exemplo, `'5' + 2` ou `5 == '5'`).
+- Prever resultados de condicionais sabendo quais valores são truthy ou falsy.
+- Justificar por que `null == undefined` é true, mas `null === undefined` é false.
 
-Conseguir prever e construir fluxos com decisões e repetições, identificando como cada caminho e iteração afeta o estado e o resultado.
+**Dependências**
 
-### Checkpoint derivado
+- JS-01.01 (conceitos de valor e tipo).
 
-`LJS-02 — Checkpoint — Decisão, repetição e fluxo de execução`
+**Web Integration**
+
+Implementar validação simples: por exemplo, ler um input numérico como texto e converter para número com `Number()`; verificar se a conversão falhou (`NaN`) antes de usar o valor.
+
+## Checklist
+
+- [ ] Distinguir cada tipo primitivo e explicar casos peculiares (`typeof null`, `NaN`).
+- [ ] Prever o valor resultante de expressões que envolvem diferentes tipos (concatenar string/número, operações booleanas).
+- [ ] Determinar se um valor é truthy ou falsy em um `if`.
+- [ ] Justificar o comportamento de `==` vs `===` em exemplos concretos.
+
+## Validação do bloco
+
+avaliar se o aluno consegue, dado um trecho de código com operações e comparações, explicar por que cada resultado ocorre (incluindo conversão de tipo) e corrigir erros comuns de coerção.
 
 ---
 
-## LJS-03 — Funções, escopo e abstração
+# JS-02 — Bindings, Declarações e Escopo Léxico
 
-### Objetivo
+## Objetivo
 
-Usar funções como principal mecanismo de decomposição e abstração de comportamento, compreendendo também como escopo e chamadas determinam a execução.
 
-### Unidades
 
-#### LJS-03.01 — Decomposição funcional
+## Unidades
 
-**Objetivo:** dividir soluções em operações menores com responsabilidades explícitas.
+### JS-02.01 — Declarações `var`, `let` e `const`
 
-**Conceitos fundamentais:**
+**Objetivo**
 
-1. função como unidade de comportamento;
-2. responsabilidade e contrato conceitual;
-3. parâmetros e argumentos;
-4. processamento e retorno;
-5. funções auxiliares;
-6. decomposição de algoritmos;
-7. composição de resultados;
-8. produção de valores versus efeitos observáveis.
+Conhecer diferenças fundamentais entre `var`, `let` e `const`, incluindo escopo e hoisting.
 
-**Chats derivados:**
+**Fundamentos**
 
-- `LJS-03.01 — Estudo — Decomposição funcional`
-- `LJS-03.01 — Prática — Decomposição funcional`
+- **Hoisting de `var`:** declarações de `var` são içadas ao topo da função (ou global) e inicializadas com `undefined`.
+- **Escopo de bloco (`let`/`const`):** variáveis declaradas com `let` ou `const` só existem no bloco `{}` em que são definidas.
+- **TDZ (Temporal Dead Zone):** `let` e `const` só são inicializadas no momento da declaração; acessar antes causa erro de referência.
+- **Reatribuição:** `const` cria bindings imutáveis (identificador constante), diferentemente de `let`.
 
-#### LJS-03.02 — Funções como valores
+**Competências**
 
-**Objetivo:** compreender a característica de primeira classe das funções em JavaScript.
+- Prever o valor de variáveis declaradas com `var` quando usadas antes da declaração (resultando em `undefined`).
+- Identificar erros de referência quando um `let`/`const` é acessado antes de definido.
+- Reescrever código para evitar vazamento acidental de variáveis globais (por exemplo, mudando `var` para `let`).
 
-**Conceitos fundamentais:**
+**Dependências**
 
-1. função como valor;
-2. referências a funções;
-3. function declarations e function expressions;
-4. arrow functions;
-5. callbacks;
-6. funções recebendo funções;
-7. funções retornando funções;
-8. funções de ordem superior.
+- JS-01 (valores tipos básicos).
 
-**Chats derivados:**
+**Web Integration**
 
-- `LJS-03.02 — Estudo — Funções como valores`
-- `LJS-03.02 — Prática — Funções como valores`
+Implementar um contador simples usando `let` dentro de um evento de clique; demonstrar que a variável não existe fora da função (evitando poluir escopo global).
 
-#### LJS-03.03 — Escopo, bindings e closures
+### JS-02.02 — Escopo Léxico e Shadowing
 
-**Objetivo:** compreender como nomes são resolvidos e como funções preservam acesso ao ambiente em que foram criadas.
+**Objetivo**
 
-**Conceitos fundamentais:**
+Explicar como as funções criam novos escopos e como a resolução de nomes ocorre (lookup léxico).
 
-1. escopo léxico;
-2. escopo de bloco;
-3. escopo de função;
-4. resolução de identificadores;
-5. shadowing;
-6. temporal dead zone;
-7. ambientes léxicos;
-8. closures;
-9. estado capturado por closures.
+**Fundamentos**
 
-**Chats derivados:**
+- **Escopo de função:** cada função (declarada ou expressa) cria um novo ambiente léxico para seus parâmetros/variáveis.
+- **Escopo global:** declarações fora de funções definem bindings globais (no `globalThis`).
+- **Shadowing:** variáveis internas podem ocultar (shadow) variáveis externas com mesmo nome.
+- **Ambientes léxicos:** modelo de cadeia de contextos onde cada referência é resolvida no escopo atual ou, se não existir, nos escopos superiores até o global.
 
-- `LJS-03.03 — Estudo — Escopo, bindings e closures`
-- `LJS-03.03 — Prática — Escopo, bindings e closures`
+**Competências**
 
-#### LJS-03.04 — Chamadas e execução síncrona
+- Determinar qual valor uma referência de variável acessa, em presença de variáveis com mesmo nome em escopos aninhados.
+- Explicar por que determinada variável é ou não visível em cada parte do código.
+- Reorganizar código para evitar conflitos de nome e dependências implícitas de escopo.
 
-**Objetivo:** relacionar chamadas de função com a ordem efetiva de execução.
+**Dependências**
 
-**Conceitos fundamentais:**
+- JS-02.01 (entendimento de `var`/`let`).
 
-1. contexto de execução;
-2. chamada, entrada e retorno de função;
-3. call stack;
-4. funções aninhadas e cadeia de chamadas;
-5. propagação de resultados;
-6. execução síncrona;
-7. execução até a conclusão de cada trabalho iniciado.
+**Web Integration**
 
-**Chats derivados:**
+Exibir dinamicamente múltiplas mensagens distintas usando variáveis de mesmo nome em diferentes funções de eventos (por exemplo, nome do usuário em formulário vs em função de limpeza).
 
-- `LJS-03.04 — Estudo — Chamadas e execução síncrona`
-- `LJS-03.04 — Prática — Chamadas e execução síncrona`
+## Checklist
 
-### Resultado esperado
+- [ ] Explicar o que acontece ao acessar uma variável declarada com `var` antes da linha de declaração (hoisting).
+- [ ] Identificar onde ocorrem erros de TDZ em código que usa `let`/`const`.
+- [ ] Rastrear referências de variáveis em funções aninhadas, indicando qual escopo define cada binding.
+- [ ] Prever como mudar `var` para `let`/`const` pode alterar o comportamento de loops e temporização (por exemplo, em laços `for`).
 
-Conseguir decompor programas em funções, manipular funções como valores e explicar corretamente escopo, closures e a sequência de chamadas.
+## Validação do bloco
 
-### Checkpoint derivado
-
-`LJS-03 — Checkpoint — Funções, escopo e abstração`
+o checkpoint deve apresentar um código com múltiplas declarações de `var` e `let` dentro de blocos e funções, pedindo ao estudante para apontar valores/erros resultantes e reescrever usando `let` adequadamente.
 
 ---
 
-## LJS-04 — Modelagem de dados, identidade e mutabilidade
+# JS-03 — Funções e Closures
 
-### Objetivo
+## Objetivo
 
-Representar entidades e coleções com estruturas adequadas e compreender as consequências de compartilhar e modificar objetos.
 
-### Unidades
 
-#### LJS-04.01 — Sequências e registros
+## Unidades
 
-**Objetivo:** escolher representações simples para dados estruturados.
+### JS-03.01 — Declaração, Expressão e Arrow Functions
 
-**Conceitos fundamentais:**
+**Objetivo**
 
-1. strings como valores textuais;
-2. arrays como sequências ordenadas;
-3. índices e comprimento;
-4. objetos como conjuntos de propriedades;
-5. chaves e valores;
-6. acesso e atualização de propriedades;
-7. estruturas aninhadas;
-8. arrays de objetos e objetos contendo arrays;
-9. destructuring e spread como sintaxes auxiliares de manipulação.
+Diferenciar as formas de criar funções em JavaScript e compreender que funções são valores.
 
-**Chats derivados:**
+**Fundamentos**
 
-- `LJS-04.01 — Estudo — Sequências e registros`
-- `LJS-04.01 — Prática — Sequências e registros`
+- **Funções de primeira classe:** uma função pode ser atribuída, passada ou retornada como valor. Isso habilita callbacks e funções de ordem superior.
+- **Declarações vs Expressões:** diferença entre `function nome() {}` (função nomeada) e `const nome = function(){}` ou arrow (`=>`) (função anônima atribuída).
+- **Arrow functions:** sintaxe compacta; **não** cria novo escopo de `this` (captura o `this` léxico).
+- **Parâmetros e retorno:** comportamento de parâmetros opcionais, valores default; retorno implícito em arrow de expressão única.
 
-#### LJS-04.02 — Identidade, compartilhamento e cópia
+**Competências**
 
-**Objetivo:** evitar o modelo incorreto de que objetos simplesmente são “passados por referência”.
+- Escrever funções usando declaração e expressão (incluindo arrow) para o mesmo propósito, sabendo como as diferenças afetarão `this` e `arguments`.
+- Passar funções como argumentos (callbacks) e receber funções de outras funções (higher-order).
+- Converter uma função tradicional em arrow function onde aplicável, ou vice-versa, preservando funcionalidade.
 
-**Conceitos fundamentais:**
+**Dependências**
 
-1. valores primitivos versus identidade de objetos;
-2. igualdade e identidade;
-3. bindings contendo valores de objetos;
-4. mutação;
-5. aliasing e compartilhamento;
-6. argumentos passados por valor e compartilhamento de objetos;
-7. reatribuição versus alteração do objeto;
-8. cópia superficial;
-9. efeitos de estruturas aninhadas compartilhadas.
+- JS-01 (tipos); JS-02 (escopo).
 
-**Chats derivados:**
+**Web Integration**
 
-- `LJS-04.02 — Estudo — Identidade, compartilhamento e cópia`
-- `LJS-04.02 — Prática — Identidade, compartilhamento e cópia`
+Criar um manipulador de evento de clique passado como função de callback; observar como `this` (evento) é tratado dentro do handler quando escrito como função normal vs arrow.
 
-### Resultado esperado
+### JS-03.02 — Escopo Léxico e Closures
 
-Conseguir modelar dados com arrays e objetos e prever corretamente os efeitos de identidade, mutação, compartilhamento e cópias.
+**Objetivo**
 
-### Checkpoint derivado
+Compreender o escopo léxico de funções e como closures preservam variáveis do contexto de criação.
 
-`LJS-04 — Checkpoint — Modelagem de dados, identidade e mutabilidade`
+**Fundamentos**
 
----
+- **Escopo léxico:** cada função “fecha sobre” o ambiente em que foi definida.
+- **Closure:** quando uma função interna referencia variáveis do escopo externo, essas variáveis permanecem acessíveis mesmo após o término da execução externa.
+- **Estado privado:** uso de closures para manter estado entre chamadas (padrões como contador), sem expor variáveis globalmente.
+- **Lifetime dos bindings:** variáveis em closures só são coletadas se não houver mais referência à função ou ao próprio binding.
 
-## LJS-05 — Processamento de coleções e raciocínio algorítmico
+**Competências**
 
-### Objetivo
+- Prever quais variáveis cada função aninhada pode acessar, dado um exemplo de múltiplos níveis de função.
+- Usar closures para implementar padrões (por exemplo, função que retorna outra função que incrementa um contador interno).
+- Identificar e corrigir bugs comuns de closure, como o “capturar laço com var” (falha em closures dentro de loops usando `var`).
 
-Reconhecer padrões recorrentes de processamento de dados independentemente do método específico usado para implementá-los.
+**Dependências**
 
-### Unidades
+- JS-03.01 (formação de funções); JS-02.02 (escopo léxico).
 
-#### LJS-05.01 — Padrões de processamento
+**Web Integration**
 
-**Objetivo:** reconhecer a intenção algorítmica por trás de diferentes operações sobre coleções.
+Implementar um contador clicável que mantém o número de cliques em um closure (por exemplo, `let count=0; return () => {count++; ...}`), demonstrando persistência de estado privado.
 
-**Conceitos fundamentais:**
+## Checklist
 
-1. percurso;
-2. transformação;
-3. seleção;
-4. busca;
-5. teste existencial e universal;
-6. agregação;
-7. acumulação de estado;
-8. encerramento antecipado;
-9. combinação de padrões.
+- [ ] Demonstrar que uma função é um valor: armazená-la em variável, passá-la e retorná-la de outra função.
+- [ ] Traçar o escopo léxico: dada função fechada, listar todas as variáveis externas que ela “fecha” (closure).
+- [ ] Prever o resultado de código com callbacks e closures (por exemplo, chamar sequencialmente várias funções geradas por outra).
+- [ ] Escrever uma closure que mantenha estado entre chamadas (como factory de funções com estado privado).
 
-**Chats derivados:**
+## Validação do bloco
 
-- `LJS-05.01 — Estudo — Padrões de processamento`
-- `LJS-05.01 — Prática — Padrões de processamento`
-
-#### LJS-05.02 — Expressando padrões em JavaScript
-
-**Objetivo:** relacionar os padrões anteriores às construções adequadas da linguagem.
-
-**Conceitos fundamentais:**
-
-1. loops como forma geral de processamento;
-2. callbacks sobre coleções;
-3. `map()` como transformação;
-4. `filter()` como seleção;
-5. `find()` como busca;
-6. `some()` e `every()` como testes;
-7. `reduce()` como agregação;
-8. escolha entre método iterativo e loop explícito.
-
-**Chats derivados:**
-
-- `LJS-05.02 — Estudo — Expressando padrões em JavaScript`
-- `LJS-05.02 — Prática — Expressando padrões em JavaScript`
-
-#### LJS-05.03 — Ordenação e custo intuitivo
-
-**Objetivo:** desenvolver sensibilidade inicial ao custo das escolhas algorítmicas sem antecipar análise assintótica formal.
-
-**Conceitos fundamentais:**
-
-1. ordenação como transformação de uma coleção;
-2. função comparadora;
-3. percursos completos e encerramento antecipado;
-4. percursos repetidos;
-5. loops aninhados;
-6. crescimento intuitivo do trabalho com a entrada;
-7. comparação de soluções equivalentes;
-8. adequação entre solução, clareza e custo.
-
-**Chats derivados:**
-
-- `LJS-05.03 — Estudo — Ordenação e custo intuitivo`
-- `LJS-05.03 — Prática — Ordenação e custo intuitivo`
-
-### Resultado esperado
-
-Conseguir resolver problemas sobre coleções por padrões de transformação, seleção, busca, teste, agregação e ordenação, avaliando intuitivamente o trabalho necessário.
-
-### Checkpoint derivado
-
-`LJS-05 — Checkpoint — Processamento de coleções e raciocínio algorítmico`
+avaliar se o estudante pode refatorar um uso de callback dentro de uma função para usar closures de forma adequada, explicando por que o estado foi ou não preservado.
 
 ---
 
-## LJS-06 — Objetos, protótipos e classes
+# JS-04 — Objetos: Propriedades, Referências e Mutabilidade
 
-### Objetivo
+## Objetivo
 
-Construir o modelo de objetos específico do JavaScript antes de introduzir classes, evitando tratá-las como um sistema independente de orientação a objetos.
 
-### Unidades
 
-#### LJS-06.01 — Propriedades e cadeia de protótipos
+## Unidades
 
-**Objetivo:** compreender como propriedades são localizadas e comportamentos podem ser compartilhados.
+### JS-04.01 — Criação e Acesso a Propriedades
 
-**Conceitos fundamentais:**
+**Objetivo**
 
-1. propriedades próprias;
-2. propriedades herdadas;
-3. `[[Prototype]]` como modelo conceitual;
-4. prototype chain;
-5. resolução de propriedades;
-6. compartilhamento de comportamento;
-7. métodos como propriedades cujo valor é função.
+Saber criar objetos, adicionar/acessar propriedades e entender como atualizações são feitas.
 
-**Chats derivados:**
+**Fundamentos**
 
-- `LJS-06.01 — Estudo — Propriedades e cadeia de protótipos`
-- `LJS-06.01 — Prática — Propriedades e cadeia de protótipos`
+- **Sintaxe de objeto:** inicializadores literais `{ chave: valor }` e `new Object()`.
+- **Propriedades:** acesso por notação de ponto e colchetes; chaves strings/symbols; definições padrão (enumerable, writable, etc.).
+- **Inserção/atualização:** atribuir `obj.propriedade = novoValor` cria ou atualiza; adicionar métodos (funções como propriedades).
+- **Nomes computados e símbolos:** usar expressões ou símbolos como chaves quando necessário.
 
-#### LJS-06.02 — Métodos, `this` e construção
+**Competências**
 
-**Objetivo:** compreender como a forma de chamada influencia o contexto de uma função.
+- Escrever literais de objeto com múltiplas propriedades/métodos; acessar dinamicamente propriedades usando variáveis.
+- Prever o estado do objeto após operações de criação/atualização (incluindo aninhamento de objetos).
+- Diagnosticar acesso incorreto (por exemplo, colchetes vs ponto para chaves não-identificadores).
 
-**Conceitos fundamentais:**
+**Dependências**
 
-1. chamada de função versus chamada de método;
-2. determinação de `this` em funções comuns;
-3. `this` como parte do contexto de chamada;
-4. arrow functions e `this` léxico;
-5. funções construtoras como conceito de suporte;
-6. operador `new`;
-7. instância e protótipo compartilhado.
+- JS-03 (funções como métodos de objeto).
 
-**Chats derivados:**
+**Web Integration**
 
-- `LJS-06.02 — Estudo — Métodos, this e construção`
-- `LJS-06.02 — Prática — Métodos, this e construção`
+Representar no JS um registro de formatação (por exemplo, um objeto `user` com nome e email) e atualizar seus campos conforme entradas do usuário, refletindo alterações no UI ou no console.
 
-#### LJS-06.03 — Classes sobre o modelo prototípico
+### JS-04.02 — Identidade, Referência e Mutabilidade
 
-**Objetivo:** usar a sintaxe de classes mantendo explícita sua relação com o sistema de objetos da linguagem.
+**Objetivo**
 
-**Conceitos fundamentais:**
+Entender que objetos são armazenados por referência, como compartilhar e copiar seu conteúdo.
 
-1. classe como mecanismo de definição de objetos;
-2. constructor;
-3. criação de instâncias;
-4. métodos de instância;
-5. relação entre classe, instância e protótipo;
-6. `this` em métodos e construtores.
+**Fundamentos**
 
-**Chats derivados:**
+- **Identidade de objeto:** cada objeto tem identidade única; atribuir a outra variável cria outra referência para o mesmo objeto.
+- **Comparação:** comparação de objetos com `==`/`===` só verifica identidade (mesmo objeto), não estrutura.
+- **Mutabilidade:** alterar um objeto afeta todas as referências.
+- **Cópias rasas:** duplicar objeto/array superficialmente (`Object.assign`, spread `{...obj}`), sabendo que isso copia referências internas.
+- **Cópias profundas:** nota sobre necessidade (não embutida em JS, requer manual ou API).
+- **Objetos aninhados:** atenção especial, pois referências internas também podem ser compartilhadas.
 
-- `LJS-06.03 — Estudo — Classes sobre o modelo prototípico`
-- `LJS-06.03 — Prática — Classes sobre o modelo prototípico`
+**Competências**
 
-### Resultado esperado
+- Prever efeitos de aliasing: dado código onde múltiplas variáveis referenciam o mesmo objeto, apontar como uma mudança será vista em todas.
+- Implementar cópia rasa de objeto/array; explicar por que propriedades aninhadas ainda ficam compartilhadas.
+- Identificar bugs de mutação involuntária (por exemplo, array copiado por atribuição e modificado em outro escopo).
 
-Conseguir explicar propriedades próprias e herdadas, prototype chain, `this`, `new` e classes como partes relacionadas do mesmo modelo de objetos.
+**Dependências**
 
-### Checkpoint derivado
+- JS-04.01 (acesso a objetos); JS-01 (valores vs referências).
 
-`LJS-06 — Checkpoint — Objetos, protótipos e classes`
+**Web Integration**
 
----
+Manusear uma lista de itens em um objeto (ou array) compartilhado entre funções de callback (e.g. adicionar/remover itens num carrinho de compras), observando efeitos de referência.
 
-## LJS-07 — Módulos e falhas
+## Checklist
 
-### Objetivo
+- [ ] Mostrar que duas variáveis que apontam para o mesmo objeto compartilham estado: modificar via uma altera o outro.
+- [ ] Determinar quando fazer cópia rasa (`{...obj}` ou `arr.slice()`) para evitar mutação indesejada; apontar quando ainda existe compartilhamento interno.
+- [ ] Distinguir igualdade de valor de igualdade de referência em objetos e arrays.
+- [ ] Diagnosticar e corrigir código que acidentalmente conflita ao usar um objeto mutável (por exemplo, clonando antes de modificar).
 
-Passar de programas monolíticos para unidades com dependências explícitas e desenvolver um modelo fundamental de falhas e propagação.
+## Validação do bloco
 
-### Unidades
-
-#### LJS-07.01 — Módulos ECMAScript
-
-**Objetivo:** organizar código por responsabilidades sem confundir sintaxe da linguagem com carregamento do ambiente.
-
-**Conceitos fundamentais:**
-
-1. módulo como unidade de código;
-2. escopo de módulo;
-3. dependências;
-4. `export`;
-5. `import`;
-6. exports nomeados;
-7. export default e sua distinção conceitual;
-8. bindings importados;
-9. grafo básico de módulos.
-
-**Chats derivados:**
-
-- `LJS-07.01 — Estudo — Módulos ECMAScript`
-- `LJS-07.01 — Prática — Módulos ECMAScript`
-
-#### LJS-07.02 — Erros e exceções
-
-**Objetivo:** distinguir diferentes classes de falha e controlar erros recuperáveis.
-
-**Conceitos fundamentais:**
-
-1. erros de sintaxe;
-2. erros em execução;
-3. erros lógicos;
-4. objetos `Error`;
-5. `throw`;
-6. `try`;
-7. `catch`;
-8. `finally`;
-9. propagação por chamadas;
-10. recuperação versus propagação intencional.
-
-**Chats derivados:**
-
-- `LJS-07.02 — Estudo — Erros e exceções`
-- `LJS-07.02 — Prática — Erros e exceções`
-
-### Resultado esperado
-
-Conseguir estruturar código em módulos ECMAScript e explicar como erros surgem, propagam-se e podem ser tratados.
-
-### Checkpoint derivado
-
-`LJS-07 — Checkpoint — Módulos e falhas`
+apresentar um cenário onde dois componentes JS manipulam o mesmo objeto global e pedir para identificar consequências de compartilhamento; corrigir usando cópia.
 
 ---
 
-## LJS-08 — Execução assíncrona e ambientes JavaScript
+# JS-05 — Protótipos, Herança e Classes
 
-### Objetivo
+## Objetivo
 
-Fornecer o modelo mínimo de assincronismo necessário para trabalhar posteriormente com browser e Node.js sem atribuir ao ECMAScript mecanismos pertencentes ao host.
 
-### Unidades
 
-#### LJS-08.01 — Linguagem, engine, runtime e host
+## Unidades
 
-**Objetivo:** estabelecer corretamente as responsabilidades das diferentes camadas.
+### JS-05.01 — Cadeia de Protótipos
 
-**Conceitos fundamentais:**
+**Objetivo**
 
-1. ECMAScript como especificação da linguagem;
-2. engine como implementação da linguagem;
-3. runtime e ambiente hospedeiro;
-4. APIs fornecidas pelo host;
-5. execução síncrona e call stack;
-6. operações externas ao fluxo síncrono;
-7. jobs ECMAScript;
-8. event loop como mecanismo do ambiente;
-9. diferença conceitual entre browser e Node.js.
+Compreender como objetos podem herdar propriedades via protótipos.
 
-**Chats derivados:**
+**Fundamentos**
 
-- `LJS-08.01 — Estudo — Linguagem, engine, runtime e host`
-- `LJS-08.01 — Prática — Linguagem, engine, runtime e host`
+- **Prototype chain:** todo objeto criado (literal, array, função) tem um link `[[Prototype]]` para outro objeto padrão (e.g., `Array.prototype`, `Object.prototype`).
+- **Lookup de propriedade:** ao acessar `obj.prop`, JS procura primeiro em `obj`; se não encontrar, vai para `obj.[[Prototype]]` e assim por diante até null.
+- **Alterando protótipos:** uso de `Object.create`, `__proto__`, ou definindo propriedades em `Constructor.prototype` para afetar instâncias futuras.
+- **Herança de comportamento:** dar exemplos onde métodos nativos (como `toString`) vem de `Object.prototype`.
 
-#### LJS-08.02 — Promises
+**Competências**
 
-**Objetivo:** representar e compor resultados que podem ficar disponíveis posteriormente.
+- Rastrear onde uma propriedade/método é encontrado em um objeto ou em sua cadeia (detalhar a sequência de busca).
+- Escolher entre definir método diretamente no objeto ou no protótipo, justificando impacto na herança.
+- Evitar armadilhas de herança, por exemplo, entender que alterar um protótipo afeta todas as instâncias.
 
-**Conceitos fundamentais:**
+**Dependências**
 
-1. operação futura e resultado eventual;
-2. Promise;
-3. pending, fulfilled e rejected;
-4. resolução e rejeição;
-5. `then()`;
-6. encadeamento e retorno de Promises;
-7. `catch()`;
-8. `finally()`;
-9. propagação de valores e erros;
-10. coordenação básica de operações independentes com `Promise.all()`.
+- JS-04 (objetos e propriedades).
 
-**Chats derivados:**
+**Web Integration**
 
-- `LJS-08.02 — Estudo — Promises`
-- `LJS-08.02 — Prática — Promises`
+Criar uma cadeia prototípica customizada: por exemplo, definir `Animal` como função construtora e adicionar método a `Animal.prototype`, instanciar e usar método herdado em instâncias (animais diferentes).
 
-#### LJS-08.03 — `async` e `await`
+### JS-05.02 — Classes e Herança de Classes
 
-**Objetivo:** utilizar sintaxe assíncrona a partir do modelo já construído de Promises.
+**Objetivo**
 
-**Conceitos fundamentais:**
+Entender a sintaxe `class` e sua relação com o modelo de protótipos.
 
-1. funções `async` como funções orientadas a Promises;
-2. `await` sobre resultados assíncronos;
-3. suspensão da continuação da função;
-4. retomada posterior;
-5. rejeição convertida em fluxo de erro;
-6. `try...catch` com `await`;
-7. dependências sequenciais;
-8. operações independentes;
-9. diferença entre sequência lógica e concorrência assíncrona.
+**Fundamentos**
 
-**Chats derivados:**
+- **Sintaxe `class`:** declaração de classe com `constructor`, métodos, `extends`, `super`.
+- **Instâncias:** uso de `new` para criar objetos cuja `[[Prototype]]` é a função `constructor.prototype`.
+- **Herança de classes:** `class Sub extends Base` faz `Sub.prototype.[[Prototype]] = Base.prototype`.
+- **Classes são açúcar sintático:** internamente equivalem a função construtora + protótipo; métodos definidos na classe são não-enumeráveis.
 
-- `LJS-08.03 — Estudo — async e await`
-- `LJS-08.03 — Prática — async e await`
+**Competências**
 
-#### LJS-08.04 — Jobs, tasks e microtasks
+- Definir uma classe JS com construtor e métodos; criar instâncias e acessar métodos herdados.
+- Desenhar uma hierarquia simples de classes (`extends`) e explicar como o protótipo é encadeado.
+- Comparar código equivalente entre sintaxe de classe e funções construtoras + protótipo, reconhecendo semântica igual.
 
-**Objetivo:** conhecer apenas a camada necessária para prever a ordem básica do código assíncrono.
+**Dependências**
 
-**Conceitos fundamentais:**
+- JS-05.01 (protótipos); JS-03 (funções construtoras tratadas como funções normais).
 
-1. trabalho síncrono até a conclusão;
-2. Promise reactions como jobs;
-3. microtasks no modelo do host Web;
-4. tasks versus microtasks no navegador;
-5. checkpoints de microtasks;
-6. relação conceitual entre Promise e fila de microtasks;
-7. diferenças de runtime;
-8. timers como APIs do host, não da linguagem.
+**Web Integration**
 
-**Chats derivados:**
+Modelar entidades de uma aplicação web com classes: por exemplo, criar classes `Card`, `Deck` ou `Usuario` para gerenciar dados do front-end e instanciar objetos.
 
-- `LJS-08.04 — Estudo — Jobs, tasks e microtasks`
-- `LJS-08.04 — Prática — Jobs, tasks e microtasks`
+## Checklist
 
-### Resultado esperado
+- [ ] Explicar passo a passo onde `obj.prop` é buscado quando `obj` tem um protótipo customizado.
+- [ ] Estabelecer uma relação de herança utilizando protótipos ou `class extends`, sabendo como os métodos são compartilhados.
+- [ ] Diferenciar efeitos de definir um método em `constructor.prototype` vs diretamente na instância.
+- [ ] Dado um exemplo em `class`, reescrever de forma equivalente usando funções construtoras e vice-versa.
 
-Conseguir explicar Promises e `async/await`, prever a ordem básica de execução assíncrona e distinguir claramente o que pertence ao ECMAScript do que pertence ao browser ou ao Node.js.
+## Validação do bloco
 
-### Checkpoint derivado
-
-`LJS-08 — Checkpoint — Execução assíncrona e ambientes JavaScript`
+pedir para o estudante criar duas classes relacionadas (herança prototípica) e justificar como métodos são encontrados em cada instância, ou depurar herança incorreta.
 
 ---
 
-# Mapa operacional dos chats
+# JS-06 — Métodos e `this`
 
-```text
-LJS-01 — Problemas, valores, estado e execução
+## Objetivo
 
-LJS-01.01 — Estudo — Problemas e algoritmos
-LJS-01.01 — Prática — Problemas e algoritmos
 
-LJS-01.02 — Estudo — Valores, tipos e bindings
-LJS-01.02 — Prática — Valores, tipos e bindings
 
-LJS-01.03 — Estudo — Expressões e transformação de valores
-LJS-01.03 — Prática — Expressões e transformação de valores
+## Unidades
 
-LJS-01 — Checkpoint — Problemas, valores, estado e execução
+### JS-06.01 — Chamada de Método e Contexto de `this`
 
-LJS-02 — Decisão, repetição e fluxo de execução
+**Objetivo**
 
-LJS-02.01 — Estudo — Decisão e caminhos de execução
-LJS-02.01 — Prática — Decisão e caminhos de execução
+Entender como o modo de chamar uma função define o valor de `this`.
 
-LJS-02.02 — Estudo — Repetição e progresso
-LJS-02.02 — Prática — Repetição e progresso
+**Fundamentos**
 
-LJS-02.03 — Estudo — Rastreamento e correção intuitiva
-LJS-02.03 — Prática — Rastreamento e correção intuitiva
+- **Chamada de método:** `obj.metodo()` vincula `this` a `obj`. Mesmo se `metodo` vier de um protótipo, o contexto é o objeto que fez a chamada.
+- **Função solta:** chamar `func()` isoladamente (sem objeto) define `this` como `undefined` (modo estrito) ou `globalThis` (modo não estrito).
+- **Call, apply, bind:** métodos para chamar explicitamente `this` em uma função.
+- **Perda de contexto:** passar método de objeto como callback pode “perder” o `this` original (muda para indefinido/global se não for restrito).
 
-LJS-02 — Checkpoint — Decisão, repetição e fluxo de execução
+**Competências**
 
-LJS-03 — Funções, escopo e abstração
+- Prever o valor de `this` em diferentes formas de invocação: `obj.metodo()`, `metodo()` descarregado, ou `metodo.call(outro)`.
+- Resolver cenários comuns de perda de `this` (por exemplo, armazenar `const f = obj.metodo; f()`; ou usar em callback de evento DOM).
+- Usar `bind` ou closures para preservar o contexto adequado quando necessário.
 
-LJS-03.01 — Estudo — Decomposição funcional
-LJS-03.01 — Prática — Decomposição funcional
+**Dependências**
 
-LJS-03.02 — Estudo — Funções como valores
-LJS-03.02 — Prática — Funções como valores
+- JS-05 (objetos e métodos).
 
-LJS-03.03 — Estudo — Escopo, bindings e closures
-LJS-03.03 — Prática — Escopo, bindings e closures
+**Web Integration**
 
-LJS-03.04 — Estudo — Chamadas e execução síncrona
-LJS-03.04 — Prática — Chamadas e execução síncrona
+Criar um botão `<button>` cujo manipulador chama um método de um objeto; mostrar que, sem bind, o `this` dentro do método é o elemento do DOM, e com arrow/bind pode ser o objeto desejado.
 
-LJS-03 — Checkpoint — Funções, escopo e abstração
+### JS-06.02 — Arrow Functions e `this` Lexical
 
-LJS-04 — Modelagem de dados, identidade e mutabilidade
+**Objetivo**
 
-LJS-04.01 — Estudo — Sequências e registros
-LJS-04.01 — Prática — Sequências e registros
+Destacar como arrow functions tratam `this` diferente das funções tradicionais.
 
-LJS-04.02 — Estudo — Identidade, compartilhamento e cópia
-LJS-04.02 — Prática — Identidade, compartilhamento e cópia
+**Fundamentos**
 
-LJS-04 — Checkpoint — Modelagem de dados, identidade e mutabilidade
+- **Arrow e `this`:** arrow não cria um novo `this`; ele herda (`fecha sobre`) o `this` do contexto léxico em que foi definido.
+- **Imutabilidade de `this` em arrow:** nem `call/apply/bind` alteram o `this` em arrow (são ignoradas).
+- **Uso comum:** arrow é útil para callbacks onde queremos usar `this` do escopo externo (por exemplo, em métodos de classe para callbacks de event).
 
-LJS-05 — Processamento de coleções e raciocínio algorítmico
+**Competências**
 
-LJS-05.01 — Estudo — Padrões de processamento
-LJS-05.01 — Prática — Padrões de processamento
+- Decidir quando usar arrow function para evitar rebinding de `this` (por exemplo, em closures de métodos).
+- Explicar por que `this` permanece o mesmo (lexical) em arrow functions, ilustrando em código aninhado.
+- Reconhecer que arrow não serve como construtora (`new` com arrow é erro).
 
-LJS-05.02 — Estudo — Expressando padrões em JavaScript
-LJS-05.02 — Prática — Expressando padrões em JavaScript
+**Dependências**
 
-LJS-05.03 — Estudo — Ordenação e custo intuitivo
-LJS-05.03 — Prática — Ordenação e custo intuitivo
+- JS-03.01 (arrow functions sintaxe); JS-06.01 (conceito geral de `this`).
 
-LJS-05 — Checkpoint — Processamento de coleções e raciocínio algorítmico
+**Web Integration**
 
-LJS-06 — Objetos, protótipos e classes
+Exemplificar em código de componente front-end (por exemplo, callback de evento ou método de objeto) usando função arrow para que `this` continue sendo o objeto desejado, evitando `undefined`.
 
-LJS-06.01 — Estudo — Propriedades e cadeia de protótipos
-LJS-06.01 — Prática — Propriedades e cadeia de protótipos
+## Checklist
 
-LJS-06.02 — Estudo — Métodos, this e construção
-LJS-06.02 — Prática — Métodos, this e construção
+- [ ] Determinar o valor de `this` em uma chamada de método e em uma função normal invocada sem contexto.
+- [ ] Corrigir problemas em callbacks de objeto (por exemplo, passar método de classe para evento HTML) usando `bind` ou arrow.
+- [ ] Justificar o comportamento de `this` em arrow functions (`sempre o `this` léxico`).
+- [ ] Reconhecer situações onde `this` é `undefined` e como o modo estrito evita vazamento para `globalThis`.
 
-LJS-06.03 — Estudo — Classes sobre o modelo prototípico
-LJS-06.03 — Prática — Classes sobre o modelo prototípico
+## Validação do bloco
 
-LJS-06 — Checkpoint — Objetos, protótipos e classes
-
-LJS-07 — Módulos e falhas
-
-LJS-07.01 — Estudo — Módulos ECMAScript
-LJS-07.01 — Prática — Módulos ECMAScript
-
-LJS-07.02 — Estudo — Erros e exceções
-LJS-07.02 — Prática — Erros e exceções
-
-LJS-07 — Checkpoint — Módulos e falhas
-
-LJS-08 — Execução assíncrona e ambientes JavaScript
-
-LJS-08.01 — Estudo — Linguagem, engine, runtime e host
-LJS-08.01 — Prática — Linguagem, engine, runtime e host
-
-LJS-08.02 — Estudo — Promises
-LJS-08.02 — Prática — Promises
-
-LJS-08.03 — Estudo — async e await
-LJS-08.03 — Prática — async e await
-
-LJS-08.04 — Estudo — Jobs, tasks e microtasks
-LJS-08.04 — Prática — Jobs, tasks e microtasks
-
-LJS-08 — Checkpoint — Execução assíncrona e ambientes JavaScript
-
-LJS — Checkpoint Final
-```
+apresentar código onde métodos perdem seu contexto (e.g. sejam passados como callback) e exigir que o estudante indique o problema de `this` e corrija usando bind ou arrow function, explicando a mudança.
 
 ---
 
-# Competências ao concluir o Lab
+# JS-07 — Coleções e Iteração (Arrays e Iteráveis)
 
-1. **Analisar** um problema em termos de entradas, saídas, restrições, estados e transformações.
-2. **Decompor** soluções em algoritmos e funções com responsabilidades claras.
-3. **Prever** a execução de expressões, decisões, loops, chamadas e operações assíncronas.
-4. **Representar** estado corretamente usando valores, bindings, arrays e objetos.
-5. **Modelar** dados considerando identidade, compartilhamento e mutabilidade.
-6. **Transformar** coleções por padrões de percurso, busca, seleção, transformação e agregação.
-7. **Abstrair** comportamento usando funções, callbacks, closures e funções de ordem superior.
-8. **Explicar** escopo, call stack, protótipos, `this`, classes, módulos e Promises sem recorrer a modelos tecnicamente enganosos.
-9. **Organizar** programas em módulos e raciocinar sobre propagação de erros.
-10. **Distinguir** linguagem ECMAScript, engine, runtime, host e APIs externas, criando base suficiente para avançar posteriormente para browser, Node.js e outras plataformas.
+## Objetivo
+
+
+
+## Unidades
+
+### JS-07.01 — Arrays, Strings e Métodos Essenciais
+
+**Objetivo**
+
+Entender arrays (e imutabilidade relativa de strings) como coleções, e usar métodos comuns de transformação.
+
+**Fundamentos**
+
+- **Arrays:** são objetos indexados (chaves numéricas); possuem propriedade `length` dinâmica. Atribuir a índices (mesmo além do atual `length`) ajusta automaticamente o tamanho.
+- **Strings:** sequências imutáveis de caracteres. Indexação produz caracteres e permite iteração. Possuem métodos próprios (slice, toUpperCase, etc.).
+- **Métodos de array:** mutadores (`push`, `pop`, `splice`, etc.) versus não-mutadores (`map`, `filter`, `slice`). Usar `map/filter` para processamento declarativo e evitar mudança de estado global.
+- **Spread e rest para coleções:** espalhar (`...array`) para copiar ou concatenar; coletar em parâmetros (`...args`). Desestruturação básica de arrays e strings.
+
+**Competências**
+
+- Prever o resultado de operações de array, incluindo métodos mutáveis vs não-mutáveis.
+- Reescrever loops tradicionais usando métodos de array (`map`, `filter`) quando adequado.
+- Aplicar desestruturação de array e spread para clonar ou extrair partes de arrays/strings.
+
+**Dependências**
+
+- JS-04 (objetos e mutabilidade).
+
+**Web Integration**
+
+Consumir uma lista de dados (p.ex. itens de um JSON) usando `fetch` em uma função assíncrona e preencher elementos `<li>` via `map`; ou usar `filter` para destacar itens que cumprem certo critério na página.
+
+### JS-07.02 — Iteração e Iteráveis
+
+**Objetivo**
+
+Aprender a iterar de forma geral sobre estruturas de coleção e outros iteráveis.
+
+**Fundamentos**
+
+- **Loops tradicionais:** `for`, `while`, mas enfatizar `for...of` para arrays e iteráveis (objetos que implementam `@@iterator`).
+- **for...in vs for...of:** para objetos genéricos, `for-in` itera chaves enumeráveis, mas para arrays recomenda-se `for-of`.
+- **Iteradores e geradores:** menção ao protocolo de iteração (`Symbol.iterator`) e iteráveis padrão (`Array`, `String`, `Map`, `Set`, etc.).
+- **Atenção a mutações durante iteração:** explicar como modificar array dentro do loop pode afetar resultados.
+
+**Competências**
+
+- Escolher o laço adequado a cada situação: percorrer índices, percorrer valores ou chaves de objeto.
+- Usar `for...of` com arrays e strings, entender que percorre valores (iteração sequencial).
+- Iterar sobre objetos (via `Object.keys` ou `for...in`) corretamente.
+
+**Dependências**
+
+- JS-04 (objetos, coleções); JS-07.01 (arrays).
+
+**Web Integration**
+
+Por exemplo, iterar sobre um `HTMLCollection` ou `NodeList` (que são iteráveis) usando `for...of`, para atribuir event listeners a múltiplos elementos de forma simples.
+
+## Checklist
+
+- [ ] Diferenciar métodos que mutam arrays (push, pop etc.) de métodos que retornam novo array (map, filter, slice).
+- [ ] Resolver tarefas de processamento de coleção com métodos funcionais (map/filter/reduce), explicando como evitam mutações manuais.
+- [ ] Iterar coleções usando `for...of` ou `forEach`, explicando a sequência de acesso a elementos.
+- [ ] Evitar iterar objetos (não-iteráveis) com `for...of` (usar `Object.entries` ou `for...in` nesse caso).
+
+## Validação do bloco
+
+propor um cenário de manipulação de array onde o aluno deve escolher entre loop explícito e métodos de array, justificando a escolha, além de iterar sobre elementos do DOM replicando sua funcionalidade em código JS.
 
 ---
 
-# Aprofundamentos posteriores
+# JS-08 — Recursos Modernos da Linguagem
 
-- **Algoritmos e estruturas de dados:** recursão sistemática, stacks, queues, linked lists, trees, graphs, heaps, hash tables, algoritmos clássicos, busca binária e implementação de algoritmos de ordenação.
-- **Análise algorítmica:** Big-O, Θ e Ω, análise formal de tempo e espaço, estratégias algorítmicas e provas de correção.
-- **Coleções adicionais:** `Map`, `Set`, `WeakMap`, `WeakSet` e critérios avançados de escolha de estruturas.
-- **Sistema de tipos e valores:** `BigInt`, `Symbol` e detalhes numéricos mais profundos.
-- **Objetos avançados:** getters/setters, property descriptors, propriedades privadas, membros `static`, `extends`, `super`, explicit binding avançado de `this`, `Proxy` e `Reflect`.
-- **Protocolos da linguagem:** iterables, iterators, generators, async iterators e generators assíncronos.
-- **Processamento especializado:** expressões regulares, typed arrays e dados binários.
-- **Assincronismo avançado:** demais combinadores de Promises, estratégias de cancelamento fornecidas por APIs, limitação de concorrência e workers.
-- **Memória:** garbage collection, reachability, `WeakRef` e modelos de memória avançados.
-- **Legado e interoperabilidade:** `var`, padrões históricos de funções construtoras, callbacks profundamente aninhados e CommonJS.
-- **Ambientes e engenharia:** DOM, Web APIs, Node.js, package management, testes, debugging sistemático, linting, TypeScript e frameworks.
+## Objetivo
+
+
+
+## Unidades
+
+### JS-08.01 — Destructuring, Spread e Rest
+
+**Objetivo**
+
+Aprender as sintaxes de desempacotamento e agregação de valores.
+
+**Fundamentos**
+
+- **Destructuring de array e objeto:** extrair valores de um array/objeto diretamente em variáveis.
+- **Parâmetros rest:** coletar múltiplos argumentos em um array (funções variádicas).
+- **Operator spread:** espalhar elementos de array ou propriedades de objeto em literal, copia rasa e concatenar.
+- **Valores padrão:** definir padrão para parâmetros de função ou em destructuring.
+
+**Competências**
+
+- Reescrever atribuições manuais de elementos de arrays/objetos usando destructuring para código mais conciso.
+- Utilizar spread para clonar estruturas ou passar elementos de array como argumentos (por exemplo, `func(...arr)`).
+- Aplicar rest em funções para lidar com número variável de argumentos.
+
+**Dependências**
+
+- JS-04 (objetos, arrays); JS-07 (arrays).
+
+**Web Integration**
+
+Usar destructuring para extrair dados retornados de uma `fetch` (por exemplo, `const {id, title} = post`) e preenchê-los no DOM.
+
+### JS-08.02 — Outros Recursos: Template Literals, Optional Chaining, Nullish Coalescing
+
+**Objetivo**
+
+Conhecer sintaxes adicionais frequentes em código moderno.
+
+**Fundamentos**
+
+- **Template literals:** strings delimitadas por acento grave, permitem interpolação `${...}` e multilinhas.
+- **Optional chaining (`?.`):** acessar propriedades aninhadas sem erro se algum nível for `null`/`undefined`.
+- **Nullish coalescing (`??`):** operar parecido com `||` mas somente consideram `null`/`undefined` como “vazios”.
+- **Default parameters** (reforço): garantir valor padrão em parâmetros de função.
+
+**Competências**
+
+- Construir strings complexas sem concatenação manual usando template literals.
+- Proteger acessos a propriedades de objetos que podem ser nulos usando `?.`.
+- Diferenciar `||` de `??` ao definir valores default (entender que `||` considera `0` e `""` como falsy, enquanto `??` não).
+
+**Dependências**
+
+- JS-01 (valores null/undefined); JS-08.01 (spread/rest para casos similares).
+
+**Web Integration**
+
+Criar strings de marcação HTML com template literals inserindo variáveis; acessar dados aninhados de objetos de resposta (por exemplo, `resp.data?.user?.name`) sem erro caso algo não exista.
+
+## Checklist
+
+- [ ] Usar destructuring para extrair múltiplos valores de arrays/objetos em variáveis de forma limpa.
+- [ ] Aplicar spread/rest para simplificar manipulação de argumentos e clonagem de coleções.
+- [ ] Compor strings complexas usando template literals em vez de concatenação (`+`).
+- [ ] Usar `?.` para evitar erros ao acessar campos profundos que podem ser indefinidos, e `??` para valores default precisos.
+
+## Validação do bloco
+
+exercícios pediriam reescrever código com concatenação/if em versões usando estes recursos (por exemplo, acessar propriedade aninhada com `?.` ou construir mensagem com template literal), justificando as melhorias.
+
+---
+
+# JS-09 — Módulos ECMAScript
+
+## Objetivo
+
+
+
+## Unidades
+
+### JS-09.01 — `export` e `import`
+
+**Objetivo**
+
+Compreender a sintaxe básica de exportação e importação de valores entre módulos.
+
+**Fundamentos**
+
+- **Exportações nomeadas e default:** `export {val1, val2}` vs `export default`, e `import {val1} from` vs `import valDefault from`.
+- **Bindings estáticos:** importações criam referências vivas aos valores exportados (read-only local).
+- **Escopo de módulo:** cada arquivo é executado em seu próprio escopo; não polui global.
+- **Carregamento em browsers:** uso de `<script type="module">` e caminhos relativos para arquivos JS.
+
+**Competências**
+
+- Configurar dois arquivos JS onde um exporta funções/valores e outro importa usando `import`.
+- Escolher entre export default ou nomeados dependendo do caso de uso (objeto utilitário vs módulo single feature).
+- Prever erros comuns: esquecer `export`, usar nome errado em import, ou não incluir `.js` no caminho.
+
+**Dependências**
+
+- JS-03 (funções a serem exportadas); JS-07 (arrays ou objetos exportáveis como dados).
+
+**Web Integration**
+
+Criar um módulo `utils.js` que exporta funções de formatação de data e importar em `main.js` para formatar uma data na página.
+
+### JS-09.02 — Módulos em Prática
+
+**Objetivo**
+
+Entender carregamento e avaliação de módulos em cenário real.
+
+**Fundamentos**
+
+- **Módulos vs scripts clássicos:** módulos são “deferidos” por padrão, têm escopo próprio e são avaliados uma vez.
+- **Import maps (opcional):** breve menção de como especificar caminhos personalizados em browsers modernos.
+- **Dependências cíclicas:** noções básicas do que pode dar errado se dois módulos se importam mutuamente (posições de execução).
+- **Modularização:** benefícios de encapsular código em módulos, evitando variáveis globais e facilitando manutenção.
+
+**Competências**
+
+- Integrar módulos em um HTML real usando `<script type="module">`.
+- Diagnosticar problemas de importação em aplicações de múltiplos arquivos (ex: ordem de carregamento, erros de console sobre módulos).
+- Explicar por que módulos permitem compartilhar código sem `window.` e como a reutilização é facilitada.
+
+**Dependências**
+
+- JS-09.01.
+
+**Web Integration**
+
+Construir página HTML que importa módulos JS: por exemplo, `index.html` carrega `app.js` que por sua vez importa funções de `domUtils.js` e `data.js` para montar conteúdo da página.
+
+## Checklist
+
+- [ ] Configurar um pequeno projeto modular: criar um arquivo que exporta funções/constantes e outro que importa e usa essas features corretamente.
+- [ ] Explicar a diferença entre usar `export default` e `export` nomeado, mostrando exemplos de cada.
+- [ ] Prever como o código é avaliado: por exemplo, entender que módulos importados múltiplas vezes não duplicam execução do código.
+- [ ] Resolver conflitos simples de import (caminho relativo errado, falta de extensão, conflito de nomes).
+
+## Validação do bloco
+
+propor um conjunto de módulos com interdependências simples e pedir para o estudante organizar `import/export` para torná-los funcionais (sem poluir escopo global), além de explicar o fluxo de carregamento.
+
+---
+
+# JS-10 — Erros e Exceções
+
+## Objetivo
+
+
+
+## Unidades
+
+### JS-10.01 — `throw` e Objeto `Error`
+
+**Objetivo**
+
+Aprender a gerar erros propositais e usar objetos de erro padrão.
+
+**Fundamentos**
+
+- **Instrução `throw`:** lança uma exceção imediatamente, interrompendo o fluxo atual; qualquer expressão pode ser lançada.
+- **Objetos `Error`:** criação de novos erros personalizados (`new Error("mensagem")` ou subtipos como `TypeError`). Diferenciação entre lançar string vs objeto (boa prática usar objetos).
+- **Propagação de erro:** exceções não tratadas sobem a pilha até o próximo `catch` ou terminam o programa.
+
+**Competências**
+
+- Usar `throw new Error("msg")` para validar argumentos de função e sinalizar condições inválidas.
+- Criar erros específicos (por exemplo, `throw new RangeError()` para índices fora de faixa).
+- Entender que, em funções assíncronas (promises, callbacks), `throw` rejeita a promise automaticamente.
+
+**Dependências**
+
+- JS-01 (valores de erro); JS-03 (funções para lançar).
+
+**Web Integration**
+
+No contexto de formulário, validar dados e lançar um erro com `throw` quando o usuário envia informação inválida (por exemplo, formato de email), então capturar esse erro para exibir uma mensagem ao usuário.
+
+### JS-10.02 — `try...catch...finally`
+
+**Objetivo**
+
+Aprender a capturar e tratar exceções durante a execução de blocos de código.
+
+**Fundamentos**
+
+- **Estrutura `try/catch`:** bloco `try` contém código “perigoso”; se ocorre `throw`, a execução pula para o `catch`. Se nenhum erro ocorre, `catch` é ignorado.
+- **`finally`:** bloco opcional que é executado após `try`/`catch`, sempre (usado para limpeza).
+- **Escopo de captura:** variáveis definidas em `catch (e)` só existem dentro do `catch`.
+- **Re-throw:** em `catch` pode-se lançar novamente erro para propagar.
+
+**Competências**
+
+- Envolver trechos de código suscetíveis a erro (como parse JSON ou operações que podem falhar) em `try/catch`.
+- Extrair informações do objeto de erro capturado (`e.message`, `e.name`, `e.stack`) para log/diagnóstico.
+- Decidir quando tratar o erro no local ou re-lançar para quem chamou.
+
+**Dependências**
+
+- JS-10.01 (lançamento de erros).
+
+**Web Integration**
+
+Fazer `try { JSON.parse(input) } catch(e) { alert("JSON inválido") }` ao receber entrada do usuário, demonstrando tratamento de erros de parsing.
+
+## Checklist
+
+- [ ] Usar `throw` para sinalizar condições inválidas (como index fora de faixa) e explicar que isso interrompe o fluxo.
+- [ ] Capturar exceções com `try...catch`, distinguindo código normal do tratamento de erro.
+- [ ] Garantir que um bloco `finally` seja executado em todas as situações (útil para limpeza de recursos).
+- [ ] Demonstrar como re-encadear um erro (`throw` dentro do `catch`) após adicionar informação extra.
+
+## Validação do bloco
+
+apresentar função que pode gerar erro e pedir para o estudante cercar de `try/catch`, além de explicar o que acontece quando `throw` é usado dentro do `try`.
+
+---
+
+# JS-11 — Assíncronismo e Promises
+
+## Objetivo
+
+
+
+## Unidades
+
+### JS-11.01 — Callbacks e Fluxo Assíncrono
+
+**Objetivo**
+
+Entender o padrão antigo de callbacks para operações assíncronas.
+
+**Fundamentos**
+
+- **Callbacks:** passar função para ser executada ao fim de operação assíncrona (por exemplo, `setTimeout(fn, ms)` ou um pedido AJAX).
+- **Problemas de callback:** múltiplos callbacks aninhados (“callback hell”) dificultam leitura e tratamento de erros.
+- **Sequenciamento assíncrono:** como evitar condições de corrida garantindo que callbacks sejam chamados na ordem desejada.
+
+**Competências**
+
+- Registrar múltiplos callbacks e prever a ordem de execução baseada nos tempos/delays.
+- Transformar código com callbacks aninhados em uma sequência linear usando técnicas como funções encadeadas.
+- Identificar onde callbacks podem falhar silenciosamente e a importância de funções de erro (ex. callback(err, data)).
+
+**Dependências**
+
+- JS-06 (this, pois callbacks de `this` em métodos podem perder contexto).
+
+**Web Integration**
+
+Configurar `setTimeout` ou `setInterval` para atualizar elementos DOM após atrasos, provando que o resto do script continua executando sem bloqueio.
+
+### JS-11.02 — Promises: Estado e Encadeamento
+
+**Objetivo**
+
+Aprender o uso de Promises para representar operações assíncronas de forma encadeável e estruturada.
+
+**Fundamentos**
+
+- **Criação de Promise:** `new Promise((resolve, reject) => {...})`.
+- **Estados da Promise:** `pending`, `fulfilled` (resolvida com valor), `rejected` (erro).
+- **`then`, `catch`, `finally`:** encadeamento de tratamento: `then(onFulfilled, onRejected)` adiciona callbacks que serão chamados quando a promise resolver; `catch` é atalhos para tratar erros; `finally` executa independente do resultado.
+- **Encadeamento:** `then()` retorna uma nova promise permitindo sequenciar ações. Erros não tratados sobem até o próximo `catch`.
+- **Evitar callback hell:** comparar estrutura de encadeamento de promises (flat) com aninhamento de callbacks.
+
+**Competências**
+
+- Converter código assíncrono baseado em callback para usar Promises (`resolve` e `reject`).
+- Encadear várias operações assíncronas: usar `then` sequencialmente para processar resultados intermediários, assegurando fluxo correto.
+- Lidar com erros em cadeia: observar como lançar/exceção dentro de `then` pula para o próximo `catch`.
+- Conhecer métodos estáticos úteis (`Promise.all`, `Promise.resolve`, etc.) em nível básico.
+
+**Dependências**
+
+- JS-11.01 (conceito de fluxo assíncrono).
+
+**Web Integration**
+
+Fazer uma requisição com a API `fetch` (retorna Promise) para trazer dados de uma API pública e então encadear `.then()` para processar JSON e atualizar a página. Demonstrar `catch` para erro de rede.
+
+## Checklist
+
+- [ ] Criar uma `Promise` manualmente e disparar `resolve` ou `reject` de dentro dela.
+- [ ] Usar `.then()` e `.catch()` para encadear ações após uma operação assíncrona, explicando o fluxo de valores e erros.
+- [ ] Comparar duas sequências assíncronas (callback vs promise) e justificar qual é mais legível/manutenção.
+- [ ] Desenhar o fluxo de execução: entender que `.then()` retorna outra promise e que múltiplos `then` são executados na ordem em que foram definidos.
+
+## Validação do bloco
+
+fornecer código com promessas simples (como `fetch` ou `setTimeout`) e pedir para ordenar/explicar as saídas, além de reescrever aninhamento de callbacks em promises com `then`.
+
+---
+
+# JS-12 — Async/Await e Event Loop
+
+## Objetivo
+
+
+
+## Unidades
+
+### JS-12.01 — `async`/`await` e Fluxo Assíncrono
+
+**Objetivo**
+
+Entender como usar `async`/`await` para escrever código assíncrono de maneira síncrona e os cuidados relacionados.
+
+**Fundamentos**
+
+- **Funções `async`:** toda função marcada `async` retorna automaticamente uma Promise. O valor retornado é tratado como resolução da promise (valor implícito é encapsulado com `Promise.resolve`).
+- **Operador `await`:** só pode ser usado dentro de `async`; pausa execução da função até a Promise ser resolvida ou rejeitada. O valor após `await` é o resultado da promise.
+- **Erros com `await`:** se a promise rejeitar, um erro é lançado no ponto do `await`, podendo ser capturado por `try/catch`.
+- **Paralelismo vs Sequência:** chamar `await` sequencialmente serializa as operações; múltiplos `await` independentes podem (às vezes devem) ser iniciados em paralelo e depois aguardados juntos (`Promise.all`) para melhorar desempenho.
+- **Limitações:** demonstrar que `await` não bloqueia todo o programa, apenas “pausa” a função assíncrona, e que outros códigos (microtasks) podem continuar antes do próximo `await`.
+
+**Competências**
+
+- Refatorar cadeias de `then` para usar `async`/`await`, simplificando a legibilidade.
+- Reconhecer quando não é necessário usar `await` (por exemplo, se não precisa do valor retornado imediatamente), evitando operações serializadas desnecessárias.
+- Usar `try/catch` dentro de função `async` para tratamento de erros assíncronos.
+
+**Dependências**
+
+- JS-11 (Promises e encadeamento).
+
+**Web Integration**
+
+Criar uma função assíncrona que faz múltiplas requisições `fetch` em sequência usando `await`, por exemplo, obter perfil de usuário e depois suas postagens, atualizando a página passo a passo.
+
+### JS-12.02 — Modelo de Execução e Event Loop
+
+**Objetivo**
+
+Explicar como o JavaScript executa código assíncrono sob a cobertura, focando em tasks, microtasks e ordenação de execução.
+
+**Fundamentos**
+
+- **Call stack e jobs:** tarefas (jobs) são empilhadas na fila e executadas até conclusão (run-to-completion).
+- **Tasks vs Microtasks:** eventos assíncronos e callbacks normais formam tasks (macrotasks), enquanto callbacks de Promises são microtasks. Microtasks são processadas antes de continuar no próximo tick de tasks.
+- **Sem bloqueio:** o loop de eventos garante que I/O (timers, XHR, fetch) ocorrem assincronamente; o código após uma operação assíncrona só roda via callback ou promise (like `then`).
+- **Exemplo de ordenação:** ilustrar que Promise.resolve().then(...) sempre roda antes de setTimeout(..., 0).
+
+**Competências**
+
+- Descrever a ordem de execução entre código síncrono, `then` de promessa e callbacks de timers em um exemplo concreto.
+- Prever resultados de código envolvendo múltiplos `setTimeout`, `Promise.then` e chamadas normais.
+- Analisar brevemente porque `await` não interrompe eventos subsequentes pendentes: após `await`, o resto da função vira microtask.
+
+**Dependências**
+
+- JS-11/JS-12.01 (Promises e async/await).
+
+**Web Integration**
+
+Demonstrar em código front-end que atualizações via `setTimeout` e `Promise.then` ocorrem em ordem previsível: por exemplo, registrar no console a sequência de `console.log` no corpo principal, em um `.then()`, e em um `setTimeout`, verificando que `.then()` (microtask) executa antes do próximo tick de `setTimeout` (task).
+
+## Checklist
+
+- [ ] Reescrever código de Promise em `async`/`await` corretamente, explicando que a função continua executando depois do `await` quando a Promise resolve.
+- [ ] Identificar cenários onde `await` serializa desnecessariamente (e como paralelizar com `Promise.all`).
+- [ ] Explicar o *Event Loop*: que cada job roda inteiro antes de outro começar (run-to-completion).
+- [ ] Prever a ordem de execução envolvendo tasks e microtasks; por exemplo, saber que callbacks de promises (`then`) são executados antes de timers pendentes.
+
+## Validação do bloco
+
+apresentar um trecho de código com várias operações assíncronas (mix de `await`, `then`, `setTimeout`) e pedir que o estudante indique a sequência de logs resultante, justificando pela teoria do event loop.
+
+---
+
+### Navegação
+
+[← Mapa curricular](./README.md) ·
+[↑ JavaScript Foundations Lab](../README.md) ·
+[JS-01 — Valores, Tipos e Avaliação de Expressões →](../practice/js-01-valores-tipos-e-avaliacao-de-expressoes/)
