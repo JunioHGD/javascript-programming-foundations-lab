@@ -11,7 +11,7 @@ Entender como variáveis e funções recebem nomes no código e como esses nomes
 
 ## Validação do bloco
 
-o checkpoint deve apresentar um código com múltiplas declarações de `var` e `let` dentro de blocos e funções, pedindo ao estudante para apontar valores/erros resultantes e reescrever usando `let` adequadamente.
+O checkpoint deve apresentar um código com múltiplas declarações de `var` e `let` dentro de blocos e funções, pedindo ao estudante para apontar valores/erros resultantes e reescrever usando `let` adequadamente.
 
 [Ir para o checkpoint →](./checkpoint/)
 
