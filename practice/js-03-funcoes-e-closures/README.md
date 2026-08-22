@@ -11,7 +11,7 @@ Explorar funções como valores de primeira classe em JavaScript e o mecanismo d
 
 ## Validação do bloco
 
-avaliar se o estudante pode refatorar um uso de callback dentro de uma função para usar closures de forma adequada, explicando por que o estado foi ou não preservado.
+Avaliar se o estudante pode refatorar um uso de callback dentro de uma função para usar closures de forma adequada, explicando por que o estado foi ou não preservado.
 
 [Ir para o checkpoint →](./checkpoint/)
 
