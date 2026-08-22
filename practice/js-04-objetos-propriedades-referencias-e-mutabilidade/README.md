@@ -11,7 +11,7 @@ Investigar o modelo de objeto JavaScript: criação, acesso e efeitos da identid
 
 ## Validação do bloco
 
-apresentar um cenário onde dois componentes JS manipulam o mesmo objeto global e pedir para identificar consequências de compartilhamento; corrigir usando cópia.
+Apresentar um cenário onde dois componentes JS manipulam o mesmo objeto global e pedir para identificar consequências de compartilhamento; corrigir usando cópia.
 
 [Ir para o checkpoint →](./checkpoint/)
 
