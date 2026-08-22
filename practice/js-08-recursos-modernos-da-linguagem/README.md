@@ -11,7 +11,7 @@ Familiarizar-se com sintaxes modernas e úteis do ES6+ que complementam o modelo
 
 ## Validação do bloco
 
-exercícios pediriam reescrever código com concatenação/if em versões usando estes recursos (por exemplo, acessar propriedade aninhada com `?.` ou construir mensagem com template literal), justificando as melhorias.
+Exercícios pediriam reescrever código com concatenação/if em versões usando estes recursos (por exemplo, acessar propriedade aninhada com `?.` ou construir mensagem com template literal), justificando as melhorias.
 
 [Ir para o checkpoint →](./checkpoint/)
 
