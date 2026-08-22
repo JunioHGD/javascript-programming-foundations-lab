@@ -11,7 +11,7 @@ Compreender como JavaScript representa valores e executa expressões, incluindo 
 
 ## Validação do bloco
 
-avaliar se o aluno consegue, dado um trecho de código com operações e comparações, explicar por que cada resultado ocorre (incluindo conversão de tipo) e corrigir erros comuns de coerção.
+Avaliar se o aluno consegue, dado um trecho de código com operações e comparações, explicar por que cada resultado ocorre (incluindo conversão de tipo) e corrigir erros comuns de coerção.
 
 [Ir para o checkpoint →](./checkpoint/)
 
