@@ -1,0 +1,30 @@
+name: Restructure Foundations Lab
+
+on:
+  push:
+    branches:
+      - restructure-foundations-lab
+
+permissions:
+  contents: write
+
+jobs:
+  restructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: restructure-foundations-lab
+      - name: Rebuild JavaScript Foundations Lab
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/JunioHGD/programming-logic-foundations-lab/restructure-foundations-lab/.bootstrap/generate_lab.py.gz.b64 | base64 -d | gzip -d > /tmp/generate_lab.py
+          python /tmp/generate_lab.py --key js
+          rm -f .curriculum-source.md.gz.b64
+          rm -f .github/workflows/restructure-foundations-lab.yml
+      - name: Commit restructured Lab
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: restructure JavaScript Foundations Lab" || exit 0
+          git push origin HEAD:restructure-foundations-lab
