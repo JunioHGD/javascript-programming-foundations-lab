@@ -11,7 +11,7 @@ Elucidar como o contexto de invocação (`this`) é determinado e como usá-lo c
 
 ## Validação do bloco
 
-apresentar código onde métodos perdem seu contexto (e.g. sejam passados como callback) e exigir que o estudante indique o problema de `this` e corrija usando bind ou arrow function, explicando a mudança.
+Apresentar código onde métodos perdem seu contexto (e.g. sejam passados como callback) e exigir que o estudante indique o problema de `this` e corrija usando bind ou arrow function, explicando a mudança.
 
 [Ir para o checkpoint →](./checkpoint/)
 
