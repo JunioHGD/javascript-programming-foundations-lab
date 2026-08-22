@@ -1,6 +1,6 @@
 # JS-07 — Coleções e Iteração (Arrays e Iteráveis)
 
-Cobrir coleções nativas de JavaScript (principalmente arrays, strings e demais iteráveis) e os padrões de iteração sobre elas.
+Cobrir coleções nativas de JavaScript (principalmente arrays e strings) e os padrões de iteração sobre elas.
 
 ## Unidades
 
