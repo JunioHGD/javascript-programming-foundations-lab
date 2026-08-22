@@ -11,7 +11,7 @@ Introduzir o modelo de programação assíncrona usando callbacks e consolidar o
 
 ## Validação do bloco
 
-fornecer código com promessas simples (como `fetch` ou `setTimeout`) e pedir para ordenar/explicar as saídas, além de reescrever aninhamento de callbacks em promises com `then`.
+Fornecer código com promessas simples (como `fetch` ou `setTimeout`) e pedir para ordenar/explicar as saídas, além de reescrever aninhamento de callbacks em promises com `then`.
 
 [Ir para o checkpoint →](./checkpoint/)
 
