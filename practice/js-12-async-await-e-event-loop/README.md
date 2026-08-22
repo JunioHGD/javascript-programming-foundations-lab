@@ -11,7 +11,7 @@ Aprender `async/await` como sintaxe de açúcar sobre Promises e compreender o m
 
 ## Validação do bloco
 
-apresentar um trecho de código com várias operações assíncronas (mix de `await`, `then`, `setTimeout`) e pedir que o estudante indique a sequência de logs resultante, justificando pela teoria do event loop.
+Apresentar um trecho de código com várias operações assíncronas (mix de `await`, `then`, `setTimeout`) e pedir que o estudante indique a sequência de logs resultante, justificando pela teoria do event loop.
 
 [Ir para o checkpoint →](./checkpoint/)
 
