@@ -1,0 +1,37 @@
+name: Apply Foundations Lab Restructure
+
+on:
+  push:
+    branches:
+      - restructure-direct-v2
+    paths:
+      - '.github/workflows/apply-foundations-restructure.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  restructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: restructure-direct-v2
+          fetch-depth: 0
+      - name: Apply validated Lab matrix
+        run: |
+          base64 -d .bootstrap/apply.py.gz.b64 | gzip -d > /tmp/apply.py
+          python /tmp/apply.py
+          rm -rf .bootstrap
+          rm -f .curriculum-source.md.gz.b64
+          rm -f .github/workflows/restructure-foundations-lab.yml
+          rm -f .github/workflows/apply-foundations-restructure.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+      - name: Commit restructured Lab
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: apply validated Foundations Lab matrix"
+          git push origin HEAD:restructure-direct-v2
