@@ -11,7 +11,7 @@ Mostrar como tratar erros em JavaScript como parte do fluxo normal de execução
 
 ## Validação do bloco
 
-apresentar função que pode gerar erro e pedir para o estudante cercar de `try/catch`, além de explicar o que acontece quando `throw` é usado dentro do `try`.
+Apresentar função que pode gerar erro e pedir para o estudante cercar de `try/catch`, além de explicar o que acontece quando `throw` é usado dentro do `try`.
 
 [Ir para o checkpoint →](./checkpoint/)
 
