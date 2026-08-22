@@ -11,7 +11,7 @@ Estudar o mecanismo de herança prototípica de JavaScript e a sintaxe de classe
 
 ## Validação do bloco
 
-pedir para o estudante criar duas classes relacionadas (herança prototípica) e justificar como métodos são encontrados em cada instância, ou depurar herança incorreta.
+Pedir para o estudante criar duas classes relacionadas (herança prototípica) e justificar como métodos são encontrados em cada instância, ou depurar herança incorreta.
 
 [Ir para o checkpoint →](./checkpoint/)
 
