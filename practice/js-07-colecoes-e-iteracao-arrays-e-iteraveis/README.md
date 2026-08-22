@@ -11,7 +11,7 @@ Cobrir coleções nativas de JavaScript (principalmente arrays, strings e demais
 
 ## Validação do bloco
 
-propor um cenário de manipulação de array onde o aluno deve escolher entre loop explícito e métodos de array, justificando a escolha, além de iterar sobre elementos do DOM replicando sua funcionalidade em código JS.
+Propor um cenário de manipulação de array onde o aluno deve escolher entre loop explícito e métodos de array, justificando a escolha, além de iterar sobre elementos do DOM replicando sua funcionalidade em código JS.
 
 [Ir para o checkpoint →](./checkpoint/)
 
