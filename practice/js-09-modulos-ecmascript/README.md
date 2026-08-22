@@ -11,7 +11,7 @@ Ensinar o sistema de módulos padrão do JavaScript moderno para organização d
 
 ## Validação do bloco
 
-propor um conjunto de módulos com interdependências simples e pedir para o estudante organizar `import/export` para torná-los funcionais (sem poluir escopo global), além de explicar o fluxo de carregamento.
+Propor um conjunto de módulos com interdependências simples e pedir para o estudante organizar `import/export` para torná-los funcionais (sem poluir escopo global), além de explicar o fluxo de carregamento.
 
 [Ir para o checkpoint →](./checkpoint/)
 
